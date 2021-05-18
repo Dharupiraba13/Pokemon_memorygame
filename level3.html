@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <script src="script.js"></script>
+<head>
+    <title>Memory Game</title> <link rel = "icon" href =  "./pics/logo.png" type = "image/x-icon"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+
+<script>
+    function CustomAlert(){
+        this.render = function(dialog){
+            var winW = window.innerWidth;
+            var winH = window.innerHeight;
+            var dialogoverlay = document.getElementById('dialogoverlay');
+            var dialogbox = document.getElementById('dialogbox');
+            dialogoverlay.style.display = "block";
+            dialogoverlay.style.height = winH+"px";
+            dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+            dialogbox.style.top = "100px";
+            dialogbox.style.display = "block";
+            document.getElementById('dialogboxhead').innerHTML = "WOAH ! AMAZING !!!";
+            document.getElementById('dialogboxbody').innerHTML = dialog;
+            document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
+        }
+        this.ok = function(){
+            window.open("index.html","_self");
+        }
+    }
+    var Alert = new CustomAlert();
+    timeLeft=20;
+function countdown() {
+    timeLeft--;
+	document.getElementById("seconds").innerHTML=String(timeLeft);
+    
+    if (timeLeft > 0) {
+		setTimeout(countdown, 1000);
+	}
+    else
+    {
+        clearInterval(timeLeft);
+        alert('OOPS !! \n Times Up !!! \n Click OK to Play again ')
+        window.location.reload();
+    }
+};
+
+setTimeout(countdown, 1000); 
+    </script>
+<body>
+    <div class="main-title">
+        Match the Pok&eacute;mon!
+        <br> WELCOME TO LEVEL 3 !!
+      </div>
+      <div id="dialogoverlay"></div>
+      <div id="dialogbox">
+        <div>
+          <div id="dialogboxhead"></div>
+          <div id="dialogboxbody"></div>
+          <div id="dialogboxfoot"></div>
+        </div>
+      </div>
+          <div id="dashboard">
+              <div id="clock">
+                  <span id="seconds">20</span>
+              </div>
+
+      
+        <div style="float:right;color: yellowgreen;font-size: xx-large; font-weight: bolder;" id="score">Score: 0</div>
+        <br>
+        <div id="pokemon">
+            <div class="card" onclick="flip(0)">
+                <img id="0" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(1)">
+                <img id="1" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(2)">
+                <img id="2" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(3)">
+                <img id="3" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(4)">
+                <img id="4" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(5)">
+                <img id="5" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(6)">
+                <img id="6" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(7)">
+                <img id="7" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(8)">
+                <img id="8" src="./pics/logo.png">
+            </div>
+            <div class="card" onclick="flip(9)">
+                <img id="9" src="./pics/logo.png">
+            </div>
+        </div>
+    </div>
+    <a href="index.html"><button>EXIT</button></a>
+</body>
+</html>
